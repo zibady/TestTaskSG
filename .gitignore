@@ -1,0 +1,8 @@
+# Folders #
+out
+target
+
+# IntelliJ IDEA #
+.idea
+*.iml
+*.ipr

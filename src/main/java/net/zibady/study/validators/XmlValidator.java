@@ -16,21 +16,21 @@ public class XmlValidator {
     }
 
     public void validate (String xmlFile) /*throws SAXException, IOException*/{
-        // Поиск и создание экземпляра фабрики для языка XML Schema
+        // Створення екземпляра фабрики XML Schema
         SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
 
-        // Компиляция схемы
+        // Компіляція схеми
         try {
             File schemaLocation = new File("shapes.xsd");
             Schema schema = factory.newSchema(schemaLocation);
 
-            // Создание валидатора для схемы
+            // Створення валідатора для схеми
             Validator validator = schema.newValidator();
 
-            // Разбор проверяемого документа
+            // Розбір провіряємого документа
 //             Source source = new StreamSource(xmlFile);
 
-            // Валидация документа
+            // Валідація документа
             validator.validate(new StreamSource(xmlFile));
 //            System.out.println(xmlFile + " is valid.");
         } catch (SAXException e) {

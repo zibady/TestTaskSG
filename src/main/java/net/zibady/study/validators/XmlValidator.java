@@ -32,13 +32,15 @@ public class XmlValidator {
 
             // Валидация документа
             validator.validate(new StreamSource(xmlFile));
-            System.out.println(xmlFile + " is valid.");
+//            System.out.println(xmlFile + " is valid.");
         } catch (SAXException e) {
-            System.out.println(xmlFile + " is not valid because: " + e.getMessage());
-            throw new RuntimeException();
+            System.out.println(xmlFile + " is not valid because: \n" + e.getMessage());
+//            throw new RuntimeException();
+            System.exit(0);
         } catch (IOException e) {
-            System.out.println("Can't open " + xmlFile + " because: " + e.getMessage());
-            throw new RuntimeException();
+            System.out.println("Can't open " + xmlFile + " because: \n" + e.getMessage());
+//            throw new RuntimeException();
+            System.exit(0);
         }
     }
 }

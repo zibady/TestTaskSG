@@ -1,7 +1,7 @@
 package net.zibady.study.exceptions;
 
 
-public class ShapeException extends RuntimeException {
+public class ShapeException extends Exception {
 
     public ShapeException() {
     }

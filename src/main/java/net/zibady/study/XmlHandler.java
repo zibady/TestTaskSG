@@ -6,9 +6,12 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.concurrent.BlockingQueue;
 
-class XMLHandler extends DefaultHandler {
+class XmlHandler extends DefaultHandler {
     private BlockingQueue<Shape> shapes;
 
     private String elementName;
@@ -19,7 +22,7 @@ class XMLHandler extends DefaultHandler {
     private double diameter;
     private double[] sides = new double[3];
 
-    XMLHandler(BlockingQueue<Shape> shapes) {
+    XmlHandler(BlockingQueue<Shape> shapes) {
         this.shapes = shapes;
     }
 
@@ -39,6 +42,7 @@ class XMLHandler extends DefaultHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
+
         //The logic of the reaction to the ending of the element
         if ("circle triangle rectangle square".contains(qName.toLowerCase())) {
             if (shapeType != null)
@@ -50,7 +54,7 @@ class XMLHandler extends DefaultHandler {
                         } catch (InterruptedException ex) {
                             ex.printStackTrace();
                         } catch (ShapeException e) {
-                            System.out.printf("Wrong %s! %s%n", shapeType, e.getMessage());
+                            System.err.printf("Wrong %s! %s%n", shapeType, e.getMessage());
                         } finally {
                             shapeType = null;
                             color = null;
@@ -65,7 +69,7 @@ class XMLHandler extends DefaultHandler {
                         } catch (InterruptedException ex) {
                             ex.printStackTrace();
                         } catch (ShapeException e) {
-                            System.out.printf("Wrong %s! %s%n", shapeType, e.getMessage());
+                            System.err.printf("Wrong %s! %s%n", shapeType, e.getMessage());
                         } finally {
                             shapeType = null;
                             color = null;
@@ -83,7 +87,7 @@ class XMLHandler extends DefaultHandler {
                         } catch (InterruptedException ex) {
                             ex.printStackTrace();
                         } catch (ShapeException e) {
-                            System.out.printf("Wrong %s! %s%n", shapeType, e.getMessage());
+                            System.err.printf("Wrong %s! %s%n", shapeType, e.getMessage());
                         } finally {
                             shapeType = null;
                             color = null;
@@ -100,7 +104,7 @@ class XMLHandler extends DefaultHandler {
                         } catch (InterruptedException ex) {
                             ex.printStackTrace();
                         } catch (ShapeException e) {
-                            System.out.printf("Wrong %s! %s%n", shapeType, e.getMessage());
+                            System.err.printf("Wrong %s! %s%n", shapeType, e.getMessage());
                         } finally {
                             shapeType = null;
                             sideCount = 0;

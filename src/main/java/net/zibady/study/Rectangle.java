@@ -1,10 +1,10 @@
 package net.zibady.study;
 
-public class Rectangle extends Shape{
+class Rectangle extends Shape{
     private final double side1;
     private final double side2;
 
-    public Rectangle(String color, double side1, double side2) {
+    Rectangle(String color, double side1, double side2) {
         super(color);
         this.side1 = side1;
         this.side2 = side2;

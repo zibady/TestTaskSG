@@ -1,9 +1,9 @@
 package net.zibady.study;
 
-public class Square extends Shape{
+class Square extends Shape{
     private final double side;
 
-    public Square(String color, double side) {
+    Square(String color, double side) {
         super(color);
         this.side = side;
     }

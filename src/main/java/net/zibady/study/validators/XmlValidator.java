@@ -16,30 +16,24 @@ public class XmlValidator {
     }
 
     public void validate (String xmlFile) /*throws SAXException, IOException*/{
-        // Створення екземпляра фабрики XML Schema
+        // Create a factory for the W3C XML Schema language.
         SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
 
-        // Компіляція схеми
+        // Compile the schema.
         try {
             File schemaLocation = new File("shapes.xsd");
             Schema schema = factory.newSchema(schemaLocation);
 
-            // Створення валідатора для схеми
+            // Get a validator from the schema.
             Validator validator = schema.newValidator();
 
-            // Розбір провіряємого документа
-//             Source source = new StreamSource(xmlFile);
-
-            // Валідація документа
+            // Parse and check the document.
             validator.validate(new StreamSource(xmlFile));
-//            System.out.println(xmlFile + " is valid.");
         } catch (SAXException e) {
             System.out.println(xmlFile + " is not valid because: \n" + e.getMessage());
-//            throw new RuntimeException();
             System.exit(0);
         } catch (IOException e) {
             System.out.println("Can't open " + xmlFile + " because: \n" + e.getMessage());
-//            throw new RuntimeException();
             System.exit(0);
         }
     }

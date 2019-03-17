@@ -5,12 +5,11 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Collection;
-import java.util.List;
+import java.util.concurrent.BlockingQueue;
 
-public class XmlParser {
+class XmlParser {
 
-    public Collection<Shape> parseXmlToObjects(String fileXML, Collection<Shape> shapes) throws IOException {
+    BlockingQueue<Shape> parseXmlToObjects(String fileXML, BlockingQueue<Shape> shapes) throws IOException {
         XMLHandler handler = new XMLHandler(shapes);
         try (InputStream src = new FileInputStream(fileXML)) {
 
@@ -27,6 +26,5 @@ public class XmlParser {
         return handler.getShapes();
 
     }
-
 
 }

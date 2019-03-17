@@ -1,8 +1,9 @@
 package net.zibady.study;
-public class Circle extends Shape{
+
+class Circle extends Shape{
     private final double diameter;
 
-    public Circle(String color, double diameter) {
+    Circle(String color, double diameter) {
         super(color);
         this.diameter = diameter;
     }
@@ -13,7 +14,6 @@ public class Circle extends Shape{
 
     @Override
     protected double getArea() {
-
         return Math.PI * Math.pow(diameter/2, 2);
     }
 }

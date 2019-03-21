@@ -1,9 +1,9 @@
-package net.zibady.study;
+package net.zibady.study.shapes;
 
-class Square extends Shape{
+public class Square extends Shape{
     private final double side;
 
-    Square(String color, double side) {
+    public Square(String color, double side) {
         super(color);
         this.side = side;
     }
@@ -13,7 +13,7 @@ class Square extends Shape{
     }
 
     @Override
-    protected double getArea() {
+    public double getArea() {
 
         return Math.pow(side, 2);
     }

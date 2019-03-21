@@ -1,18 +1,17 @@
-package net.zibady.study;
+package net.zibady.study.xml;
 
 import net.zibady.study.exceptions.ShapeException;
-import net.zibady.study.validators.ShapeValidators;
+import net.zibady.study.shapes.*;
+import net.zibady.study.validators.ShapeValidator;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
 import java.util.concurrent.BlockingQueue;
 
 class XmlHandler extends DefaultHandler {
     private BlockingQueue<Shape> shapes;
+    private ShapeValidator validator = new ShapeValidator();
 
     private String elementName;
     private String shapeType;
@@ -49,7 +48,7 @@ class XmlHandler extends DefaultHandler {
                 switch (shapeType) {
                     case "circle": {
                         try {
-                            ShapeValidators.validate(color, diameter);
+                            validator.validate(color, diameter);
                             shapes.put(new Circle(color, diameter));
                         } catch (InterruptedException ex) {
                             ex.printStackTrace();
@@ -64,7 +63,7 @@ class XmlHandler extends DefaultHandler {
                     break;
                     case "triangle": {
                         try {
-                            ShapeValidators.validate(color, sides[0], sides[1], sides[2]);
+                            validator.validate(color, sides[0], sides[1], sides[2]);
                             shapes.put(new Triangle(color, sides[0], sides[1], sides[2]));
                         } catch (InterruptedException ex) {
                             ex.printStackTrace();
@@ -82,7 +81,7 @@ class XmlHandler extends DefaultHandler {
                     break;
                     case "rectangle": {
                         try {
-                            ShapeValidators.validate(color, sides[0], sides[1]);
+                            validator.validate(color, sides[0], sides[1]);
                             shapes.put(new Rectangle(color, sides[0], sides[1]));
                         } catch (InterruptedException ex) {
                             ex.printStackTrace();
@@ -99,7 +98,7 @@ class XmlHandler extends DefaultHandler {
                     break;
                     case "square": {
                         try {
-                            ShapeValidators.validate(color, sides[0]);
+                            validator.validate(color, sides[0]);
                             shapes.put(new Square(color, sides[0]));
                         } catch (InterruptedException ex) {
                             ex.printStackTrace();

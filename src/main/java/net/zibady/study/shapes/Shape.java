@@ -1,4 +1,4 @@
-package net.zibady.study;
+package net.zibady.study.shapes;
 
 public abstract class Shape {
     private final String color;
@@ -11,6 +11,6 @@ public abstract class Shape {
         return color;
     }
 
-    protected abstract double getArea();
+    public abstract double getArea();
 
 }

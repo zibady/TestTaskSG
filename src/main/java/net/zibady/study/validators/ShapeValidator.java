@@ -2,9 +2,9 @@ package net.zibady.study.validators;
 
 import net.zibady.study.exceptions.ShapeException;
 
-public class ShapeValidators {
+public class ShapeValidator {
 
-    public static void validate(String color, double a, double b, double c) throws ShapeException {
+    public void validate(String color, double a, double b, double c) throws ShapeException {
 
         if (color == null || color.isEmpty()) {
             throw new ShapeException("The shape should have a color!");
@@ -17,7 +17,7 @@ public class ShapeValidators {
         }
     }
 
-    public static void validate(String color, double side1, double side2) throws ShapeException {
+    public void validate(String color, double side1, double side2) throws ShapeException {
 
         if (color == null || color.isEmpty()) {
             throw new ShapeException("The shape should have a color!");
@@ -28,7 +28,7 @@ public class ShapeValidators {
         }
     }
 
-    public static void validate(String color, double side) throws ShapeException {
+    public void validate(String color, double side) throws ShapeException {
 
         if (color == null || color.isEmpty()) {
             throw new ShapeException("The shape should have a color!");

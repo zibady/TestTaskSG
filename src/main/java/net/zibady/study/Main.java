@@ -1,6 +1,8 @@
 package net.zibady.study;
 
+import net.zibady.study.shapes.Shape;
 import net.zibady.study.validators.XmlValidator;
+import net.zibady.study.xml.XmlParser;
 
 import java.io.File;
 import java.io.IOException;

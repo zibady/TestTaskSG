@@ -6,5 +6,7 @@ target
 .idea
 *.iml
 *.ipr
+
+# Other files #
 *.txt
 *.xsd

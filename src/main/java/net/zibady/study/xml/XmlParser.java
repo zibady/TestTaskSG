@@ -1,5 +1,6 @@
-package net.zibady.study;
+package net.zibady.study.xml;
 
+import net.zibady.study.shapes.Shape;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -10,9 +11,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.BlockingQueue;
 
-class XmlParser {
+public class XmlParser {
 
-    BlockingQueue<Shape> parseXmlToObjects(String fileXML, BlockingQueue<Shape> shapes) {
+    public BlockingQueue<Shape> parseXmlToObjects(String fileXML, BlockingQueue<Shape> shapes) {
         XmlHandler handler = new XmlHandler(shapes);
         try (InputStream src = new FileInputStream(fileXML)) {
 

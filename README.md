@@ -15,20 +15,7 @@
 
 Формат входных данных
 
-Входной xml-файл удовлетворяет приложенной xsd-схеме.
-Пример входного файла:
-    <shapes>
-    <triangle>
-    <color>red</color>
-    <side>1.5</side>
-    <side>1.5</side>
-    <side>1.5</side>
-    </triangle>
-    <circle>
-    <color>orange</color>
-    <diameter>1.5</diameter>
-    </circle>
-    </shapes>
+Входной xml-файл удовлетворяет приложенной xsd-схеме. Пример входного файла:
 
 Формат выходных данных
 

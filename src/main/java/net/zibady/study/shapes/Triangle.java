@@ -30,4 +30,32 @@ public class Triangle extends Shape{
 
         return Math.sqrt(p*(p-side1)*(p-side2)*(p-side3));
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Triangle triangle = (Triangle) o;
+
+        if (!this.getColor().equals(triangle.getColor())) return false;
+        if (Double.compare(triangle.side1, side1) != 0) return false;
+        if (Double.compare(triangle.side2, side2) != 0) return false;
+        return Double.compare(triangle.side3, side3) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = this.getColor().hashCode();
+        result = (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(side1);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(side2);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(side3);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
 }

@@ -6,24 +6,32 @@ import static org.junit.Assert.*;
 
 public class ShapesTests {
     @Test
-    public void getCircleArea() throws Exception {
+    public void getCorrectCircleArea() throws Exception {
         Shape circle = new Circle("white", 4);
-        assertEquals(Math.PI*4, circle.getArea(), 0.001);
+        double expected = 12.57;
+        double actual = circle.getArea();
+        assertEquals(expected, actual, 0.01);
     }
     @Test
-    public void getRectangleArea() throws Exception {
+    public void getCorrectRectangleArea() throws Exception {
         Shape rectangle = new Rectangle("white", 4, 2);
-        assertEquals(8.00, rectangle.getArea(), 0.01);
+        double expected = 8.00;
+        double actual = rectangle.getArea();
+        assertEquals(expected, actual, 0.01);
     }
     @Test
-    public void getSquareArea() throws Exception {
+    public void getCorrectSquareArea() throws Exception {
         Shape square = new Square("white", 4);
-        assertEquals(16.00, square.getArea(), 0.01);
+        double expected = 16.00;
+        double actual = square.getArea();
+        assertEquals(expected, actual, 0.01);
     }
     @Test
-    public void getTriangleArea() throws Exception {
+    public void getCorrectTriangleArea() throws Exception {
         Shape triangle = new Triangle("white", 2, 2, 2);
-        assertEquals(1.73, triangle.getArea(), 0.01);
+        double expected = 1.73;
+        double actual = triangle.getArea();
+        assertEquals(expected, actual, 0.01);
     }
 
 }

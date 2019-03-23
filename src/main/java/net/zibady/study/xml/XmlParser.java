@@ -13,7 +13,7 @@ import java.util.concurrent.BlockingQueue;
 
 public class XmlParser {
 
-    public BlockingQueue<Shape> parseXmlToObjects(String fileXML, BlockingQueue<Shape> shapes) {
+    public void parseXmlToObjects(String fileXML, BlockingQueue<Shape> shapes) {
         XmlHandler handler = new XmlHandler(shapes);
         try (InputStream src = new FileInputStream(fileXML)) {
 
@@ -28,7 +28,6 @@ public class XmlParser {
             System.out.println("Can't open " + fileXML + " because: \n" + e.getMessage());
             System.exit(0);
         }
-        return handler.getShapes();
 
     }
 

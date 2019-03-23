@@ -23,4 +23,29 @@ public class Rectangle extends Shape{
 
         return side1 * side2;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Rectangle rectangle = (Rectangle) o;
+
+        if (!this.getColor().equals(rectangle.getColor())) return false;
+        if (Double.compare(rectangle.side1, side1) != 0) return false;
+        return Double.compare(rectangle.side2, side2) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = this.getColor().hashCode();
+        result = (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(side1);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(side2);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
 }

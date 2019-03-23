@@ -13,9 +13,10 @@ public class Main {
     private static ArrayBlockingQueue<Shape> shapes = new ArrayBlockingQueue<>(100);
 
     public static void main(String[] args) {
+
         //Use System.err as a simple logger
         try {
-            System.setErr(new PrintStream(new File("log.txt")));
+            System.setErr(new PrintStream(new File("errors.log")));
         } catch (IOException e) {
             e.printStackTrace();
         }

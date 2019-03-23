@@ -2,12 +2,10 @@ package net.zibady.study.validators;
 
 import org.xml.sax.SAXException;
 
-import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
-import java.io.File;
 import java.io.IOException;
 
 public class XmlValidator {
@@ -21,8 +19,8 @@ public class XmlValidator {
 
         // Compile the schema.
         try {
-            File schemaLocation = new File("shapes.xsd");
-            Schema schema = factory.newSchema(schemaLocation);
+            String schemaLocation = "shapes.xsd";
+            Schema schema = factory.newSchema( new StreamSource(ClassLoader.getSystemResourceAsStream(schemaLocation)));
 
             // Get a validator from the schema.
             Validator validator = schema.newValidator();
